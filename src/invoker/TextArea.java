@@ -25,7 +25,7 @@ public class TextArea extends JTextArea {
 		debutSelection = 0;
 		finSelection = 0;
 		selectionner = commandes.get("selectionner");
-		inserer = commandes.get("inserer");
+		inserer = commandes.get("insererTxt");
 		supprimer = commandes.get("supprimer");
 
 		setRows(20);

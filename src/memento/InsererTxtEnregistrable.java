@@ -28,7 +28,7 @@ private Caretaker enregistreur;
 
 	@Override
 	public void setMemento(Memento memento) {
-		char c = ((MementoInsererTxt) memento).getEtat().charAt(0);
-		moteur.insererTxt(c);
+		char t = ((MementoInsererTxt) memento).getEtat().charAt(0);
+		moteur.insererTxt(t);
 	}
 }
