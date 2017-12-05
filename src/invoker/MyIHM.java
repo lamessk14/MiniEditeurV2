@@ -32,22 +32,6 @@ public class MyIHM extends JFrame {
 	protected BoutonsCommand playEnregistrement;
 
 	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MyIHM frame = new MyIHM();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
 	 * Create the frame.
 	 */
 	public MyIHM() {

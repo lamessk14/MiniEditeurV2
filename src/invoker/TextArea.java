@@ -90,6 +90,10 @@ public class TextArea extends JTextArea {
 	public char getDernierCharactere() {
 		return dernierChar;
 	}
+	
+	public void setDernierCharactere(char t) {
+		dernierChar = t;
+	}
 
 	public void MAJ(String texte, int debutSelection1, int finSelection1) {
 		setText(texte);
