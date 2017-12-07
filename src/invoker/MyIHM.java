@@ -18,11 +18,16 @@ import javax.swing.border.EmptyBorder;
 
 import command.Command;
 
+/**
+ * @author COULIBALY Fanta & Louise-Agnès MACKONGO 
+ */
+
 public class MyIHM extends JFrame {
 
-	// Déclaration des variables
+	/**
+	 * Déclaration des variables
+	 */
 	private JFrame frame;
-	//private JPanel contentPaneMiniEditeur;
 	protected TextArea zoneDeSaisie;
 	protected BoutonsCommand couper;
 	protected BoutonsCommand copier;
@@ -42,7 +47,12 @@ public class MyIHM extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 	}
-	
+	/**
+	 * Initialisation des différents boutons + création de l'interface graphique et les éléments
+	 * qui la compose
+	 * 
+	 * @param commandes
+	 */
 	public void initComposants(HashMap<String,Command> commandes){
 		zoneDeSaisie = new TextArea(commandes);
 		couper = Bouton("Couper", commandes.get("couper"));
@@ -90,6 +100,10 @@ public class MyIHM extends JFrame {
 		frame.getContentPane().setLayout(glContentPane);
 	}
 	
+	/**
+	 * Affichage de l'interface graphique de l'application qui contient les différents
+	 * éléments qui ont créés dans la fonction initComposants(HashMap<String,Command> commandes)
+	 */
 	public void afficher(){
 		frame.pack();
 		frame.setLocationRelativeTo(null);
@@ -97,6 +111,12 @@ public class MyIHM extends JFrame {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * 
+	 * @param nomCommande
+	 * @param commande
+	 * @return une commande(couper, coller, copier) ainsi que le nom qui lui est assoicié
+	 */
 	private BoutonsCommand Bouton(String nomCommande, Command commande) {
 		BoutonsCommand boutonsCommand = new BoutonsCommand(nomCommande, commande);
 		boutonsCommand.setMaximumSize(new Dimension(Short.MAX_VALUE, boutonsCommand.getPreferredSize().height));
@@ -111,6 +131,11 @@ public class MyIHM extends JFrame {
 		return boutonsCommand;
 	}
 	
+	/**
+	 * 
+	 * @param nomCommande
+	 * @return la commande associée au nom de commande donné en paramètre
+	 */
 	public Command getCommand(String nomCommande) {
 		if(nomCommande == "couper"){
 			return couper.getCommand();
@@ -129,23 +154,41 @@ public class MyIHM extends JFrame {
 		}
 	}
 	
+	/**
+	 * @param commandes
+	 */
 	public void TextArea(HashMap<String,Command> commandes) {
 		zoneDeSaisie = new TextArea(commandes);
 	}
 	
+	/**
+	 * 
+	 * @return zoneDeSaisie
+	 */
 	public TextArea getTextArea() {
 		return zoneDeSaisie;
 	}
 
-	
+	/**
+	 * 
+	 * @return le dernier caractère
+	 */
 	public char getDernierCharactere() {
 		return zoneDeSaisie.getDernierCharactere();
 	}
 
+	/**
+	 * 
+	 * @return la position du début de la sélection
+	 */
 	public int getDebutSelection() {
 		return zoneDeSaisie.getSelectionStart();
 	}
 	
+	/**
+	 * 
+	 * @return la position de la fin de la sélection
+	 */
 	public int getFinSelection(){
 		return zoneDeSaisie.getSelectionEnd();
 	}

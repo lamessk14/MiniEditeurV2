@@ -2,11 +2,13 @@ package receiver;
 import java.util.*;
 
 /**
- * 
+ * @author Fanta COULIBALY et Louise-Agnès MACKONGO
  */
 public class PressePapier {
 
-	//Déclaration de la variable texte qui contiendra un contenu copié ou coupé
+	/**
+	 * Déclaration de la variable texte qui contiendra un contenu copié ou coupé
+	 */
 	
 	private String texte;
     /**
@@ -16,17 +18,25 @@ public class PressePapier {
     	texte ="";
     }
     
-    //Getter
+    /**
+     * Getter
+     * @return une chaîne de caractères
+     */
     public String getTexte(){
     	return texte;
     }
     
-    //Retourne la longueur du texte dans le presse-papier
+    /** 
+     * @return la longueur du texte dans le presse-papier
+     */
     public int getLongueurSelection(){
     	return texte.length();
     }
     
-    //Setter
+    /**
+     * Setter
+     * @param txt
+     */
     public void setTexte(String txt){
     	texte = txt;
     }

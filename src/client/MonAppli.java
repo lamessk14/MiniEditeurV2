@@ -9,10 +9,13 @@ import receiver.*;
 import command.*;
 
 /**
- * 
+ * @author COULIBALY Fanta & Louise-Agnès MACKONGO 
  */
 public class MonAppli {
 	
+	/**
+	 * Déclaration des variables
+	 */
 	private MoteurEditeurImplem moteur;
 	private ObserverImplem myIHM;
 	private HashMap<String,Command> commandesIHM;
@@ -20,7 +23,7 @@ public class MonAppli {
 	private Caretaker enregistreur;
 
     /**
-     * Default constructor
+     * Création de tous les objets qui permettront le fonctionnement de l'application
      */
     public MonAppli() {
     	moteur = new MoteurEditeurImplem();
@@ -54,35 +57,63 @@ public class MonAppli {
 		commandesIHM.put("arreter", new Arreter(enregistreur));
 		commandesIHM.put("rejouer", new Rejouer(enregistreur));
     }
-
+/**
+ * Initialisation des différentes fonctions (copier, coller, couper...) du pattern Command
+ * Il n'y a qu'une seule classe Observer. Il s'agit du moteurEditeur
+ * Affichage de l'interface graphique
+ */
     public void start(){
     	myIHM.initComposants(commandesIHM);
 		moteur.registerObserver(myIHM);
 		myIHM.afficher();
 		enregistreur.setCommandes(commandesEnregistrables);
 	}
-
+/**
+ * Exécution du main
+ * 
+ * @param args
+ */
 	public static void main(String args[]) {
 		MonAppli monAppli = new MonAppli();
 		monAppli.start();
 	}
 
+	/**
+	 * 
+	 * @return le moteur éditeur
+	 */
 	public MoteurEditeurImplem getMoteur(){
 		return moteur;
 	}
 	
+	/**
+	 * 
+	 * @return l'IHM
+	 */
 	public ObserverImplem getIHM(){
 		return myIHM;
 	}
 	
+	/**
+	 * 
+	 * @return les commandes non enregistrables
+	 */
 	public HashMap<String,Command> getCommandes(){
 		return commandesIHM;
 	}
 	
+	/**
+	 * 
+	 * @return les commandes enregistrables
+	 */
 	public HashMap<String, CommandEnregistrable> getCommandesEnregistreur() {
 		return commandesEnregistrables;
 	}
 	
+	/**
+	 * 
+	 * @return l'enregistreur
+	 */
 	public Caretaker getEnregistreur(){
 		return enregistreur;
 	}

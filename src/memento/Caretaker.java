@@ -4,12 +4,19 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * @author COULIBALY Fanta & Louise-Agnès MACKONGO 
+ */
 public class Caretaker {
 	
 	private Queue<Memento> mementos;
 	private HashMap<String, CommandEnregistrable> commandesEnregistrables;
 	private boolean etat;
 
+	/**
+	 * Création d'une liste de mémento + un hashMap de commandes enregistrables
+	 * associées à leurs noms
+	 */
 	public Caretaker() {
 		mementos = new LinkedList<Memento>();
 		commandesEnregistrables = new HashMap<String, CommandEnregistrable>();

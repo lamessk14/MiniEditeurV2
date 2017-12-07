@@ -10,9 +10,15 @@ import javax.swing.event.CaretListener;
 
 import command.Command;
 
+/**
+ * @author COULIBALY Fanta & Louise-Agnès MACKONGO 
+ */
 @SuppressWarnings("serial")
 public class TextArea extends JTextArea {
 
+	/**
+	 * Déclaration des variables
+	 */
 	private int debutSelection;
 	private int finSelection;
 	private char dernierChar;
@@ -20,6 +26,11 @@ public class TextArea extends JTextArea {
 	private Command inserer;
 	private Command supprimer;
 
+	/**
+	 * Initialisation des différentes commandes + mise à jour des positions de 
+	 * début et de fin de sélection en cas de sélection, d'insertion ou de suppression
+	 * @param commandes
+	 */
 	public TextArea(HashMap<String, Command> commandes) {
 
 		debutSelection = 0;
@@ -72,11 +83,23 @@ public class TextArea extends JTextArea {
 		});
 	}
 
+	/**
+	 * Modification d'une sélection
+	 * 
+	 * @param debutSelection1
+	 * @param finSelection1
+	 */
 	public void setSelection(int debutSelection1, int finSelection1) {
 		debutSelection = debutSelection1;
 		finSelection = finSelection1;
 	}
 
+	/**
+	 * Retourne les commandes associées aux noms donnés en paramètre
+	 * 
+	 * @param nom
+	 * @return
+	 */
 	public Command getCommand(String nom) {
 		if (nom == "selectionner") {
 			return selectionner;
@@ -87,14 +110,29 @@ public class TextArea extends JTextArea {
 		}
 	}
 
+	/**
+	 * 
+	 * @return le dernier caractère
+	 */
 	public char getDernierCharactere() {
 		return dernierChar;
 	}
+	
+	/**
+	 * Permet de changer le dernier caractère
+	 * @param t
+	 */
 	
 	public void setDernierCharactere(char t) {
 		dernierChar = t;
 	}
 
+	/**
+	 * 
+	 * @param texte
+	 * @param debutSelection1
+	 * @param finSelection1
+	 */
 	public void MAJ(String texte, int debutSelection1, int finSelection1) {
 		setText(texte);
 		setSelectionStart(debutSelection1);

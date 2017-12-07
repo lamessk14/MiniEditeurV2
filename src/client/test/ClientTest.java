@@ -16,6 +16,9 @@ import receiver.MoteurEditeurImplem;
 import command.Command;
 import client.MonAppli;
 
+/**
+ * @author COULIBALY Fanta & Louise-Agnès MACKONGO 
+ */
 public class ClientTest {
 	
 	private MonAppli myEditeurDeTexte;
@@ -25,6 +28,12 @@ public class ClientTest {
 	private HashMap<String,CommandEnregistrable> commandesEnregistrables;
 	private Caretaker enregistreur;
 
+	/**
+	 * Actions effectuées avant les tests
+	 * 
+	 * Création des différents objets qui permettront d'effectuer les tests
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		myEditeurDeTexte = new MonAppli();
@@ -39,6 +48,12 @@ public class ClientTest {
 		moteur.registerObserver(ihm);
 	}
 
+	/**
+	 * Actions effectuées après les tests
+	 * 
+	 * Libération des objets
+	 * @throws Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 		myEditeurDeTexte = null;
@@ -49,6 +64,9 @@ public class ClientTest {
 		enregistreur = null;
 	}
 
+	/**
+	 * Vérification de la correspondance entre les commandes et les noms de commande
+	 */
 	@Test
 	public void testCommandes() {
 		 assertEquals(commandesIHM.get("couper"), ihm.getCommand("couper") );
@@ -68,12 +86,20 @@ public class ClientTest {
 		 assertEquals(commandesEnregistrables.get("supprimer"), enregistreur.getCommand("supprimer"));
 		 
 	}
-	
+	/**
+	 * Vérification de l'existence d'observers
+	 */
 	@Test
 	public void testObservers() {
 		 assertTrue(moteur.getObservers().contains(ihm)); 
 	}
 	
+	/**
+	 * Insertion d'une chaîne de caractères(date), dernier caractère coupé puis collé
+	 * au même emplacement de départ
+	 * Sélection de la chaîne de caractère, copie puis coller
+	 * Enregistrement des commandes réalisées puis repaly de ces commandes
+	 */
 	@Test
 	public void testMoteur(){
 			
